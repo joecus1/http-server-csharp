@@ -9,8 +9,7 @@ server.Start();
 Socket socket = server.AcceptSocket(); // wait for client
 Console.Write("Connected!\n");
 
-HashSet<string> endPoints = new HashSet<string>();
-endPoints.Add("/");
+HashSet<string> endPoints = ["/"];
 
 byte[] receivedBytes = new byte[256];
 
@@ -31,7 +30,7 @@ if (endPoints.Contains(httpRequest.RequestLine.Target))
 }
 else
 {
-    sendString = "HTTP/1.1 404 NOT FOUND\r\n\r\n";
+    sendString = "HTTP/1.1 404 Not Found\r\n\r\n";
 }
 
 byte[] sendBytes = Encoding.ASCII.GetBytes(sendString);
